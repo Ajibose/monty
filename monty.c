@@ -21,14 +21,17 @@ void interpreter(char *str)
 		fprintf(stderr, "Error: Can't open file %s", str);
 		exit(EXIT_FAILURE);
 	}
-	while ((getline(&line, &n, stream)) != -1)
-	{
-		if (*line == '\n')
-		{
+	while ((getline(&line, &n, stream)) != -1){
+		if (*line == '\n'){
 			count++;
 			continue;
 		}
 		op = strtok(line, " \t\n");
+		if (!op || *str = '#'){
+			count++;
+			continue;
+		}
+
 		global.argument = strtok(NULL, " \t\n");
 		if (check_opcode(op) == 1)
 			opcode_exec(&stack, op, count);
