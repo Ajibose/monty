@@ -27,11 +27,6 @@ void interpreter(char *str)
 			continue;
 		}
 		op = strtok(line, " \t\n");
-		if (!op || *op == '#'){
-			count++;
-			continue;
-		}
-
 		global.argument = strtok(NULL, " \t\n");
 		if (check_opcode(op) == 1)
 			opcode_exec(&stack, op, count);
