@@ -54,5 +54,6 @@ int check_opcode(char *str);
 void opcode_exec(stack_t **stack, char *str, unsigned int count);
 void free_dstack_t(stack_t *head);
 void frees(char **str);
+void pint(stack_t **stack, unsigned int count);
 
 #endif /* MONTY_H */
