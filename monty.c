@@ -27,7 +27,7 @@ void interpreter(char *str)
 			continue;
 		}
 		op = strtok(line, " \t\n");
-		if (!op || *str = '#'){
+		if (!op || *op == '#'){
 			count++;
 			continue;
 		}
