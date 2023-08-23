@@ -1,6 +1,25 @@
 #include "monty.h"
 #include <stdio.h>
 
+
+/** open_file - open file
+ * @str: file name
+ *
+ * Return: FILE poietr
+ */
+FILE *open_file(char *str)
+{
+	FILE *stream;
+
+	stream = fopen(str, "r");
+	if (stream == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s", str);
+		exit(EXIT_FAILURE);
+	}
+	return (stream);
+}
+
 /**
  * interpreter - executes opcode
  * @str: name of file
@@ -15,18 +34,20 @@ void interpreter(char *str)
 	FILE *stream;
 	unsigned int count = 1;
 
-	stream = fopen(str, "r");
-	if (stream == NULL)
+	stream = open_file(str);
+	while ((getline(&line, &n, stream)) != -1)
 	{
-		fprintf(stderr, "Error: Can't open file %s", str);
-		exit(EXIT_FAILURE);
-	}
-	while ((getline(&line, &n, stream)) != -1){
-		if (*line == '\n'){
+		if (*line == '\n')
+		{
 			count++;
 			continue;
 		}
 		op = strtok(line, " \t\n");
+		if (!op || *op == '#')
+		{
+			count++;
+			continue;
+		}
 		global.argument = strtok(NULL, " \t\n");
 		if (check_opcode(op) == 1)
 			opcode_exec(&stack, op, count);
