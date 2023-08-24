@@ -42,11 +42,6 @@ void interpreter(char *str)
 			continue;
 		}
 		op = strtok(global.line, " \t\n");
-		/*if (!op || *op == '#')
-		{
-			count++;
-			continue;
-		}*/
 		if (op)
 		{
 			global.argument = strtok(NULL, " \t\n");
