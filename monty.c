@@ -14,7 +14,7 @@ FILE *open_file(char *str)
 	stream = fopen(str, "r");
 	if (stream == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s", str);
+		fprintf(stderr, "Error: Can't open file %s\n", str);
 		exit(EXIT_FAILURE);
 	}
 	return (stream);
@@ -78,7 +78,7 @@ int main(int ac, char *argv[])
 {
 	if (ac != 2)
 	{
-		fprintf(stderr, "USAGE: monty file");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 

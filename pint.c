@@ -12,7 +12,7 @@ void pint(stack_t **stack, unsigned int count)
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty", count);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", count);
 		free(global.line);
 		free_dstack_t(*stack);
 		fclose(global.stream);
