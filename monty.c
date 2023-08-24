@@ -2,7 +2,8 @@
 #include <stdio.h>
 
 
-/** open_file - open file
+/**
+ * open_file - open file
  * @str: file name
  *
  * Return: FILE poietr
@@ -30,9 +31,6 @@ void interpreter(char *str)
 {
 	size_t n = 0;
 	char *op;
-	/*char *line = NULL, *op;
-	stack_t *stack = NULL;
-	FILE *stream;*/
 	unsigned int count = 1;
 
 	global.stream = open_file(str);
