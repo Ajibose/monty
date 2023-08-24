@@ -31,13 +31,7 @@ void parse_div(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	/* ptr = *stack;*/
 	n = (*stack)->next->n / (*stack)->n;
-	/*
-	 * *stack = ptr->next;
-	 * (*stack)->prev = NULL;
-	 * (*stack)->n = n;
-	 */
 	pop(stack, line_number);
 	(*stack)->n = n;
 }
