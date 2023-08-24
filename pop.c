@@ -9,7 +9,6 @@
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
-	int n;
 	stack_t *ptr;
 
 	if (*stack == NULL)
@@ -23,7 +22,6 @@ void pop(stack_t **stack, unsigned int line_number)
 	}
 
 	ptr = *stack;
-	n = (*stack)->n;
 	*stack = (*stack)->next;
 	if (*stack)
 		(*stack)->prev = NULL;
