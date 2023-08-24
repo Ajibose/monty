@@ -42,11 +42,11 @@ void interpreter(char *str)
 			continue;
 		}
 		op = strtok(global.line, " \t\n");
-		if (!op || *op == '#')
+		/*if (!op || *op == '#')
 		{
 			count++;
 			continue;
-		}
+		}*/
 		global.argument = strtok(NULL, " \t\n");
 		if (check_opcode(op) == 1)
 			opcode_exec(&global.stack, op, count);
