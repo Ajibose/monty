@@ -68,5 +68,6 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 size_t stack_tlen(const stack_t *h);
 void add(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
