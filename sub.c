@@ -22,7 +22,7 @@ void sub(stack_t **stack, unsigned int line_number)
 	}
 
 	ptr = *stack;
-	n = abs(ptr->n - ptr->next->n);
+	n = ptr->next->n - ptr->n;
 	*stack = ptr->next;
 	(*stack)->prev = NULL;
 	(*stack)->n = n;
