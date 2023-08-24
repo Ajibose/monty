@@ -8,7 +8,7 @@ const instruction_t opcodes[] = {
 	{"swap", swap},
 	{"add", add},
 	{"sub", sub},
-	{"div", div},
+	{"div", parse_div},
 	{NULL, NULL}
 };
 

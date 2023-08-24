@@ -7,7 +7,7 @@
  *
  * Return: void
  */
-void div(stack_t **stack, unsigned int line_number)
+void parse_div(stack_t **stack, unsigned int line_number)
 {
 	int n, flag = 0;
 	stack_t *ptr;
@@ -15,10 +15,10 @@ void div(stack_t **stack, unsigned int line_number)
 	if (stack_tlen(*stack) < 2)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
-		flag = 1
+		flag = 1;
 	}
 
-	if (ptr->n == 0)
+	if ((*stack)->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero", line_number);
 		flag = 1;
