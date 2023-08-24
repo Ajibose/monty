@@ -47,16 +47,19 @@ void interpreter(char *str)
 			count++;
 			continue;
 		}*/
-		global.argument = strtok(NULL, " \t\n");
-		if (check_opcode(op) == 1)
-			opcode_exec(&global.stack, op, count);
-		else
+		if (op)
 		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", count, str);
-			free_dstack_t(global.stack);
-			fclose(global.stream);
-			free(global.line);
-			exit(EXIT_FAILURE);
+			global.argument = strtok(NULL, " \t\n");
+			if (check_opcode(op) == 1)
+				opcode_exec(&global.stack, op, count);
+			else
+			{
+				fprintf(stderr, "L%d: unknown instruction %s\n", count, str);
+				free_dstack_t(global.stack);
+				fclose(global.stream);
+				free(global.line);
+				exit(EXIT_FAILURE);
+			}
 		}
 		count++;
 	}
