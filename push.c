@@ -34,7 +34,7 @@ stack_t *add_dnodeint(stack_t **head, int n)
 /**
  * push - push an elemnt to the stack
  * @stack: linked list stack
- * @count: line number of opcode
+ * @line_number: line number of opcode
  *
  */
 void push(stack_t **stack, unsigned int line_number)
