@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * div - adds the top two elements of the stack.
+ * parse_div - adds the top two elements of the stack.
  * @stack: stack head pointer
  * @line_number: opcode line number in file
  *
