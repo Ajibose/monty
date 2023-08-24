@@ -9,24 +9,24 @@
  */
 void parse_div(stack_t **stack, unsigned int line_number)
 {
-	int n, flag = 0;
+	int n;
 
 	if (stack_tlen(*stack) < 2)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
-		flag = 1;
+		free(global.line);
+		free_dstack_t(*stack);
+
+		fclose(global.stream);
+		exit(EXIT_FAILURE);
 	}
 
 	if (((*stack)->n) == 0)
 	{
 		fprintf(stderr, "L%d: division by zero", line_number);
-		flag = 1;
-	}
-
-	if (flag == 1)
-	{
 		free(global.line);
-		free(*stack);
+		free_dstack_t(*stack);
+
 		fclose(global.stream);
 		exit(EXIT_FAILURE);
 	}
