@@ -10,6 +10,7 @@ const instruction_t opcodes[] = {
 	{"nop", nop},
 	{"sub", sub},
 	{"div", parse_div},
+	{"mul", mul},
 	{NULL, NULL}
 };
 
