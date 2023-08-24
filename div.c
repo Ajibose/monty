@@ -10,7 +10,6 @@
 void parse_div(stack_t **stack, unsigned int line_number)
 {
 	int n, flag = 0;
-	stack_t *ptr;
 
 	if (stack_tlen(*stack) < 2)
 	{
@@ -18,13 +17,13 @@ void parse_div(stack_t **stack, unsigned int line_number)
 		flag = 1;
 	}
 
-	if ((*stack)->n == 0)
+	if (((*stack)->n) == 0)
 	{
 		fprintf(stderr, "L%d: division by zero", line_number);
 		flag = 1;
 	}
 
-	if (flag)
+	if (flag == 1)
 	{
 		free(global.line);
 		free(*stack);
@@ -32,10 +31,13 @@ void parse_div(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	ptr = *stack;
-	n = ptr->next->n / ptr->n;
-	*stack = ptr->next;
-	(*stack)->prev = NULL;
+	/* ptr = *stack;*/
+	n = (*stack)->next->n / (*stack)->n;
+	/*
+	 * *stack = ptr->next;
+	 * (*stack)->prev = NULL;
+	 * (*stack)->n = n;
+	 */
+	pop(stack, line_number);
 	(*stack)->n = n;
-	free(ptr);
 }
