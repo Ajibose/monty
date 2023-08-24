@@ -14,7 +14,7 @@ void add(stack_t **stack, unsigned int line_number)
 
 	if (stack_tlen(*stack) < 2)
 	{
-		printf("L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		free(global.line);
 		free(*stack);
 		fclose(global.stream);
