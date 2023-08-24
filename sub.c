@@ -14,7 +14,7 @@ void sub(stack_t **stack, unsigned int line_number)
 
 	if (stack_tlen(*stack) < 2)
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't sub, stack too shrt\n", line_number);
 		free(global.line);
 		free(*stack);
 		fclose(global.stream);
