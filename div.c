@@ -23,7 +23,7 @@ void parse_div(stack_t **stack, unsigned int line_number)
 
 	if (((*stack)->n) == 0)
 	{
-		fprintf(stderr, "L%d: division by zero", line_number);
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		free(global.line);
 		free_dstack_t(*stack);
 
