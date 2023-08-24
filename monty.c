@@ -29,20 +29,21 @@ FILE *open_file(char *str)
 void interpreter(char *str)
 {
 	size_t n = 0;
-	char *line = NULL, *op;
+	char *op;
+	/*char *line = NULL, *op;
 	stack_t *stack = NULL;
-	FILE *stream;
+	FILE *stream;*/
 	unsigned int count = 1;
 
-	stream = open_file(str);
-	while ((getline(&line, &n, stream)) != -1)
+	global.stream = open_file(str);
+	while ((getline(&global.line, &n, global.stream)) != -1)
 	{
-		if (*line == '\n')
+		if (*global.line == '\n')
 		{
 			count++;
 			continue;
 		}
-		op = strtok(line, " \t\n");
+		op = strtok(global.line, " \t\n");
 		if (!op || *op == '#')
 		{
 			count++;
@@ -50,20 +51,20 @@ void interpreter(char *str)
 		}
 		global.argument = strtok(NULL, " \t\n");
 		if (check_opcode(op) == 1)
-			opcode_exec(&stack, op, count);
+			opcode_exec(&global.stack, op, count);
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", count, str);
-			free_dstack_t(stack);
-			fclose(stream);
-			free(line);
+			free_dstack_t(global.stack);
+			fclose(global.stream);
+			free(global.line);
 			exit(EXIT_FAILURE);
 		}
 		count++;
 	}
-	free_dstack_t(stack);
-	fclose(stream);
-	free(line);
+	free_dstack_t(global.stack);
+	fclose(global.stream);
+	free(global.line);
 }
 
 /**

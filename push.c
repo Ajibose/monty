@@ -45,9 +45,17 @@ void push(stack_t **stack, unsigned int count)
 	if (isdigit(*n) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", count);
+		free_dstack_t(*stack);
+		free(global.line);
+		fclose(global.stream);
 		exit(EXIT_FAILURE);
 	}
 	arg = atoi(n);
 	if (add_dnodeint(stack, arg) == NULL)
+	{
+		free_dstack_t(*stack);
+		free(global.line);
+		fclose(global.stream);
 		exit(EXIT_FAILURE);
+	}
 }

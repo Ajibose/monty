@@ -38,9 +38,18 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-typedef struct all
+/**
+ * struct all_s - globals to free
+ * @argument: opcode argument
+ * @stack: head of stack
+ * @line: opcode line
+ * @stream: file opening
+ */
+typedef struct all_s
 {
-	char *argument;
+	char *argument, *line;
+	stack_t *stack;
+	FILE *stream;
 } all_t;
 all_t global;
 char **tokenizer(char *str, char *d);
