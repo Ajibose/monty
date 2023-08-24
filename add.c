@@ -3,7 +3,7 @@
 /**
  * add - adds the top two elements of the stack.
  * @stack: stack head pointer
- * @line_numer: opcode line number in file
+ * @line_number: opcode line number in file
  *
  * Return: void
  */
