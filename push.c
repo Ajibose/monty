@@ -37,14 +37,14 @@ stack_t *add_dnodeint(stack_t **head, int n)
  * @count: line number of opcode
  *
  */
-void push(stack_t **stack, unsigned int count)
+void push(stack_t **stack, unsigned int line_number)
 {
 	int arg;
 	char *n = global.argument;
 
 	if (isdigit(*n) == 0)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", count);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_dstack_t(*stack);
 
 		free(global.line);
