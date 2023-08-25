@@ -12,6 +12,7 @@ const instruction_t opcodes[] = {
 	{"div", parse_div},
 	{"mul", mul},
 	{"mod", mod},
+	{"pchar", pchar},
 	{NULL, NULL}
 };
 
