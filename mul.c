@@ -14,7 +14,7 @@ void mul(stack_t **stack, unsigned int line_number)
 
 	if (stack_tlen(*stack) < 2)
 	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		free(global.line);
 		free_dstack_t(*stack);
 
