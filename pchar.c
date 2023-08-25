@@ -22,7 +22,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 
 	n = (*stack)->n;
-	if (n < 0 && n > 127)
+	if (n < 0 || n > 127)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		free(global.line);
