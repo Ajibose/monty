@@ -42,7 +42,7 @@ void interpreter(char *str)
 			continue;
 		}
 		op = strtok(global.line, " \t\n");
-		if (op)
+		if (op && (*op != '#'))
 		{
 			global.argument = strtok(NULL, " \t\n");
 			if (check_opcode(op) == 1)
