@@ -42,7 +42,7 @@ void push(stack_t **stack, unsigned int line_number)
 	int arg;
 	char *n = global.argument;
 
-	if (isdigit(*n) == 0)
+	if (check_digit(n) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_dstack_t(*stack);
@@ -60,4 +60,27 @@ void push(stack_t **stack, unsigned int line_number)
 		fclose(global.stream);
 		exit(EXIT_FAILURE);
 	}
+}
+
+/**
+ * check_digit - checks if a string is digit
+ * @n: string to check
+ *
+ * Return: 1 on success, 0 otherwise
+ */
+int check_digit(char *n)
+{
+	int i = 0;
+
+	if (n[i] == '-')
+		i++;
+
+	while (n[i] != '\0')
+	{
+		if (isdigit(n[i]) == 0)
+			return (0);
+		i++;
+	}
+
+	return (1);
 }
