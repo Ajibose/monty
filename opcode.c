@@ -14,6 +14,7 @@ const instruction_t opcodes[] = {
 	{"mod", mod},
 	{"pchar", pchar},
 	{"pstr", pstr},
+	{"rotl", rotl},
 	{NULL, NULL}
 };
 
