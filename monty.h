@@ -1,10 +1,10 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
 #include <errno.h>
-#define _GNU_SOURCE
 #include <string.h>
 #include <ctype.h>
 extern char *argument;
@@ -75,5 +75,6 @@ void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 int check_digit(char *n);
+void pstr(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
